@@ -1,0 +1,691 @@
+Index: ui/profil.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># profil.py\r\nfrom PyQt6.QtGui import QFont, QPixmap\r\nfrom PyQt6.QtWidgets import *\r\nfrom PyQt6.QtCore import Qt\r\nfrom PyQt6.QtGui import QPixmap, QIcon\r\nfrom PyQt6.QtCore import QSize\r\nfrom PyQt6.QtGui import QPixmap, QIcon, QFont\r\nfrom PyQt6.QtWidgets import QWidget, QHBoxLayout, QPushButton, QLabel, QSizePolicy\r\nfrom PyQt6.QtCore import Qt, QSize\r\nfrom edit_profile import *\r\n\r\nclass ProfileMenuMixin:\r\n    def __init__(self):\r\n        # Initialiser avec des valeurs par défaut\r\n        self.is_dark_theme = False\r\n        self.current_style = None\r\n        self.username = None  # ← Ajouter pour stocker le username\r\n        self.email = None\r\n\r\n    def set_theme(self, is_dark_theme, current_style=None):\r\n        \"\"\"Définit le thème pour le menu profil\"\"\"\r\n        self.is_dark_theme = is_dark_theme\r\n        self.current_style = current_style\r\n        self.apply_profile_theme()\r\n\r\n    def set_username(self, username):\r\n        \"\"\"Définit le nom d'utilisateur\"\"\"\r\n        self.username = username\r\n        if hasattr(self, 'user_name') and self.user_name:\r\n            self.user_name.setText(username)\r\n\r\n    def set_email(self, email):\r\n        \"\"\"Définit l'email de l'utilisateur\"\"\"\r\n        self.email = email\r\n        if hasattr(self, 'user_email') and self.user_email:\r\n            self.user_email.setText(email)\r\n\r\n    def create_profile_menu(self):\r\n        \"\"\"Crée le menu profil en haut à droite, même style que les boutons de la sidebar\"\"\"\r\n        # --- Container horizontal ---\r\n        self.profile_container = QWidget()\r\n        self.profile_layout = QHBoxLayout(self.profile_container)\r\n        self.profile_layout.setContentsMargins(0, 0, 0, 0)\r\n        self.profile_layout.setSpacing(4)\r\n        self.profile_layout.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)\r\n\r\n        # --- Bouton profil (même style que create_nav_button) ---\r\n        self.profile_btn = QPushButton()\r\n        self.profile_btn.setFixedHeight(45)\r\n        self.profile_btn.setFont(QFont(\"Segoe UI\", 10))\r\n        self.profile_btn.setCursor(Qt.CursorShape.PointingHandCursor)\r\n        self.profile_btn.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)\r\n\r\n        icon_pixmap = QPixmap(\"img/profile.png\").scaled(\r\n            40, 40, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation\r\n        )\r\n        self.profile_btn.setIcon(QIcon(icon_pixmap))\r\n        self.profile_btn.setIconSize(QSize(40, 40))\r\n\r\n        self.profile_btn.setStyleSheet(\"\"\"\r\n            QPushButton {\r\n                background-color: transparent;\r\n                border: none;\r\n                text-align: left;\r\n                padding-left: 5px;\r\n                padding-right: 5px;\r\n            }\r\n        \"\"\")\r\n\r\n        # --- Flèche à droite ---\r\n        self.arrow_icon = QLabel()\r\n        self.arrow_icon.setFixedSize(16, 16)\r\n        self.arrow_icon.setAlignment(Qt.AlignmentFlag.AlignVCenter | Qt.AlignmentFlag.AlignLeft)\r\n\r\n        # ✅ Forcer le pixmap dès la création (au lieu d'attendre un clic)\r\n        arrow_pixmap = QPixmap(\"img/arrow_down.png\").scaled(\r\n            16, 16,\r\n            Qt.AspectRatioMode.KeepAspectRatio,\r\n            Qt.TransformationMode.SmoothTransformation\r\n        )\r\n        if arrow_pixmap.isNull():\r\n            print(\"⚠\uFE0F Image arrow_down.png introuvable dans 'img/'\")\r\n        self.arrow_icon.setPixmap(arrow_pixmap)\r\n\r\n        # --- Ajout dans le layout ---\r\n        self.profile_layout.addWidget(self.profile_btn, alignment=Qt.AlignmentFlag.AlignVCenter)\r\n        self.profile_layout.addWidget(self.arrow_icon, alignment=Qt.AlignmentFlag.AlignVCenter)\r\n\r\n        # --- Largeur du container ---\r\n        self.profile_container.setMinimumWidth(self.profile_btn.width() + 20)\r\n\r\n        # Connexion du clic\r\n        self.profile_btn.clicked.connect(self.toggle_profile_menu)\r\n\r\n        # Créer le menu déroulant\r\n        self.create_profile_dropdown()\r\n        self.profile_dropdown.setVisible(False)\r\n\r\n        return self.profile_container\r\n\r\n    def create_profile_dropdown(self):\r\n        \"\"\"Crée le menu déroulant du profil avec icône et username horizontalement\"\"\"\r\n        self.profile_dropdown = QWidget()\r\n        self.profile_dropdown.setFixedWidth(300)\r\n        self.profile_dropdown.setFixedHeight(220)\r\n\r\n        self.profile_dropdown.setStyleSheet(\"\"\"\r\n            QWidget {\r\n                background-color: white;\r\n                border: 1px ;\r\n                border-radius: 8px;\r\n                padding: 5px;\r\n                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\r\n            }\r\n        \"\"\")\r\n\r\n        dropdown_layout = QVBoxLayout(self.profile_dropdown)\r\n        dropdown_layout.setContentsMargins(15, 15, 15, 15)\r\n        dropdown_layout.setSpacing(12)\r\n\r\n        # --- Ligne horizontale : Icône + Username ---\r\n        user_header = QWidget()\r\n        user_header_layout = QHBoxLayout(user_header)\r\n        user_header_layout.setContentsMargins(0, 0, 0, 0)\r\n        user_header_layout.setSpacing(8)\r\n\r\n        # --- Section horizontale : Icône + (Nom et Email empilés) ---\r\n        user_section = QWidget()\r\n        user_layout = QHBoxLayout(user_section)\r\n        user_layout.setContentsMargins(0, 0, 0, 0)\r\n        user_layout.setSpacing(0)\r\n\r\n        # Icône du profil (à gauche)\r\n        profile_icon_label = QLabel()\r\n        profile_pixmap = QPixmap(\"img/profile.png\").scaled(48, 48, Qt.AspectRatioMode.KeepAspectRatio,\r\n                                                              Qt.TransformationMode.SmoothTransformation)\r\n        profile_icon_label.setPixmap(profile_pixmap)\r\n        profile_icon_label.setFixedSize(48, 48)\r\n        profile_icon_label.setStyleSheet(\"\"\"\r\n            QLabel {\r\n                border-radius: 24px;  /* 50% de 48px */\r\n                border: none;\r\n            }\r\n        \"\"\")\r\n        # Container pour nom et email (empilés verticalement à droite de l'icône)\r\n        name_email_container = QWidget()\r\n        name_email_layout = QVBoxLayout(name_email_container)\r\n        name_email_layout.setContentsMargins(0, 0, 0, 0)\r\n\r\n        # Username (en haut) - utiliser le vrai nom d'utilisateur si disponible\r\n        self.user_name = QLabel(self.username if self.username else \" Utilisateur\")\r\n        self.user_name.setFont(QFont(\"Segoe UI\", 12, QFont.Weight.Bold))\r\n        self.user_name.setStyleSheet(\"color: #2D3748; margin: 0; padding-left:5px;\")\r\n\r\n        # Email (en dessous du username)\r\n        self.user_email = QLabel(self.email if self.email else \"john.doe@example.com\")  # Vous pouvez modifier ça plus tard\r\n        self.user_email.setFont(QFont(\"Segoe UI\", 8))\r\n        self.user_email.setStyleSheet(\"color: #525063;margin: 0; padding-left:1px;font-weight:bold;\")\r\n        self.user_name.setAlignment(Qt.AlignmentFlag.AlignVCenter)  # ← AJOUT: alignement vertical\r\n\r\n        name_email_layout.addWidget(self.user_name)\r\n        name_email_layout.addWidget(self.user_email)\r\n\r\n        # Ajouter icône et container nom/email au layout horizontal\r\n        user_layout.addWidget(profile_icon_label)\r\n        user_layout.addWidget(name_email_container)\r\n        user_layout.setAlignment(profile_icon_label, Qt.AlignmentFlag.AlignTop)  # ← Aligner l'icône en haut\r\n        user_layout.setAlignment(name_email_container, Qt.AlignmentFlag.AlignTop)  # ← Aligner le texte en haut\r\n\r\n        # Séparateur\r\n        separator = QFrame()\r\n        separator.setFrameShape(QFrame.Shape.HLine)\r\n        separator.setStyleSheet(\"background-color: #3342CC; margin: 8px 0;font-weight=3;\")\r\n        separator.setFixedHeight(2)\r\n\r\n        # Boutons avec icônes\r\n        self.edit_profile_btn = QPushButton()\r\n        self.logout_btn = QPushButton()\r\n\r\n        # Style des boutons avec icônes\r\n        button_style = \"\"\"\r\n            QPushButton {\r\n                background-color: transparent;\r\n                color:#141313;\r\n                font-weight: bold;\r\n                border: none;\r\n                padding: 8px 0px 8px 30px;  /* ← Ajouter du padding à gauche pour l'icône */\r\n                text-align: left;\r\n                font-size: 13px;\r\n                border-radius: 4px;\r\n            }\r\n            QPushButton:hover {\r\n                background-color: #F7FAFC;\r\n                color: #2D3748;\r\n            }\r\n        \"\"\"\r\n\r\n        self.edit_profile_btn.setStyleSheet(button_style)\r\n        self.logout_btn.setStyleSheet(button_style)\r\n\r\n        # Configuration des icônes et textes\r\n        edit_icon = QIcon(\"img/edit.png\")\r\n        logout_icon = QIcon(\"img/logout.png\")\r\n\r\n        self.edit_profile_btn.setIcon(edit_icon)\r\n        self.edit_profile_btn.setIconSize(QSize(16, 16))\r\n        self.edit_profile_btn.setText(\"Edit Profile\")\r\n\r\n        self.logout_btn.setIcon(logout_icon)\r\n        self.logout_btn.setIconSize(QSize(16, 16))\r\n        self.logout_btn.setText(\"Log Out\")\r\n\r\n        # Connecter les boutons\r\n        self.edit_profile_btn.clicked.connect(self.edit_profile)\r\n        self.logout_btn.clicked.connect(self.logout)\r\n\r\n        # Ajouter tout au layout principal\r\n        dropdown_layout.addWidget(user_section)  # Section horizontale icône + nom/email\r\n        dropdown_layout.addWidget(separator)\r\n        dropdown_layout.addWidget(self.edit_profile_btn)\r\n        dropdown_layout.addWidget(self.logout_btn)\r\n\r\n        # Positionner le menu déroulant\r\n        self.profile_dropdown.setParent(self)\r\n        self.profile_dropdown.setVisible(False)\r\n        self.profile_dropdown.hide()\r\n\r\n    def toggle_profile_menu(self):\r\n        \"\"\"Ouvre/ferme le menu profil et anime la flèche\"\"\"\r\n        if self.profile_dropdown.isVisible():\r\n            # Fermer le menu\r\n            self.profile_dropdown.setVisible(False)\r\n            # Changer la flèche vers le bas\r\n            arrow_pixmap = QPixmap(\"img/arrow_down.png\").scaled(16, 16, Qt.AspectRatioMode.KeepAspectRatio,\r\n                                                                   Qt.TransformationMode.SmoothTransformation)\r\n            self.arrow_icon.setPixmap(arrow_pixmap)\r\n        else:\r\n            # Ouvrir le menu\r\n            self.profile_dropdown.setVisible(True)\r\n            # Changer la flèche vers le haut\r\n            arrow_pixmap = QPixmap(\"img/arrow_up.png\").scaled(16, 16, Qt.AspectRatioMode.KeepAspectRatio,\r\n                                                                 Qt.TransformationMode.SmoothTransformation)\r\n            # --- Correct position calculation ---\r\n            btn_global_pos = self.profile_btn.mapToGlobal(self.profile_btn.rect().bottomRight())\r\n            parent_global_pos = self.parentWidget().mapToGlobal(self.parentWidget().rect().topLeft())\r\n\r\n            # Position the dropdown so its right edge aligns with the button’s right edge\r\n            dropdown_x = btn_global_pos.x() - parent_global_pos.x() - self.profile_dropdown.width() + self.profile_btn.width()\r\n            dropdown_y = btn_global_pos.y() - parent_global_pos.y() + 6  # small gap below button\r\n            self.arrow_icon.setPixmap(arrow_pixmap)\r\n\r\n\r\n            # Positionner le menu déroulant CORRECTEMENT\r\n            # Obtenir la position globale du bouton\r\n            button_global_pos = self.profile_btn.mapToGlobal(self.profile_btn.rect().bottomRight())\r\n\r\n            # Convertir en coordonnées locales du parent (MainPage)\r\n            parent_global_pos = self.mapToGlobal(self.rect().topLeft())\r\n\r\n            # Calculer la position relative\r\n            dropdown_x = button_global_pos.x() - parent_global_pos.x() - 200  # Aligner à droite\r\n            dropdown_y = button_global_pos.y() - parent_global_pos.y() + 5\r\n\r\n            # Déplacer le menu\r\n            self.profile_dropdown.move(dropdown_x, dropdown_y)\r\n            self.profile_dropdown.raise_()  # S'assurer qu'il est au-dessus des autres widgets\r\n\r\n    def edit_profile(self):\r\n        \"\"\"Ouvre la fenêtre d'édition du profil\"\"\"\r\n        self.edit_window = EditProfileWindow(\r\n            username=self.username or \"\",\r\n            email=self.email or \"\",\r\n            is_dark_theme=self.is_dark_theme,\r\n            parent=self\r\n        )\r\n        self.edit_window.show()\r\n\r\n    def logout(self):\r\n        \"\"\"Déconnecte l'utilisateur\"\"\"\r\n        print(\"Logout clicked\")\r\n        # À implémenter - retour à la page de login\r\n\r\n    def apply_profile_theme(self):\r\n        \"\"\"Applique le thème au menu profil\"\"\"\r\n        # Cette méthode peut être utilisée pour appliquer des styles spécifiques au thème\r\n        pass
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ui/profil.py b/ui/profil.py
+--- a/ui/profil.py	(revision 3bb0dd051601e8d487632cdcc91e9e75d885d687)
++++ b/ui/profil.py	(date 1762529779056)
+@@ -7,7 +7,7 @@
+ from PyQt6.QtGui import QPixmap, QIcon, QFont
+ from PyQt6.QtWidgets import QWidget, QHBoxLayout, QPushButton, QLabel, QSizePolicy
+ from PyQt6.QtCore import Qt, QSize
+-from edit_profile import *
++from .edit_profile import *
+ 
+ class ProfileMenuMixin:
+     def __init__(self):
+Index: ui/gui_sidebar_widget.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ui/gui_sidebar_widget.py b/ui/gui_sidebar_widget.py
+--- a/ui/gui_sidebar_widget.py	(revision 3bb0dd051601e8d487632cdcc91e9e75d885d687)
++++ b/ui/gui_sidebar_widget.py	(date 1762534495744)
+@@ -1,0 +1,663 @@
++self.sidebar_expanded = False
++self.scan_frame_visible = False
++self.create_sidebar()
++self.content_layout.addWidget(self.sidebar)
++
++
++def create_sidebar(self):
++    """Crée une sidebar collapsible"""
++    self.sidebar = QWidget()
++    self.sidebar.setMinimumWidth(100)
++    self.sidebar.setMaximumWidth(200)
++    self.sidebar.setFixedWidth(100)
++    self.apply_sidebar_style()
++
++    self.sidebar_layout = QVBoxLayout(self.sidebar)
++    self.sidebar_layout.setContentsMargins(30, 0, 0, 0)
++    self.sidebar_layout.setSpacing(10)
++    self.create_sidebar_logo()
++
++    self.create_sidebar_buttons()
++
++    self.sidebar_layout.addStretch()
++    self.show_sidebar_text(False)
++
++
++def create_sidebar_buttons(self):
++    """Crée les boutons de la sidebar avec icônes et texte"""
++    self.sidebar_layout.addSpacing(30)
++    self.scan_btn = self.create_nav_button("img/scanner.png", "Home", "scanner")
++    self.dashboard_btn = self.create_nav_button("img/dashboard.png", "Dashboard", "dashboard")
++
++    self.identity_btn = self.create_nav_button("img/identity.png", "Identity", "identity")
++
++    for btn in [self.scan_btn, self.dashboard_btn, self.identity_btn]:
++        self.sidebar_layout.addWidget(btn)
++
++    self.sidebar_layout.addSpacing(380)
++
++    self.settings_btn = self.create_nav_button("img/setting.png", "Settings", "setting")
++    self.help_btn = self.create_nav_button("img/question.png", "Help", "question")
++    self.about_btn = self.create_nav_button("img/about.png", "About", "about")
++
++    for btn in [self.settings_btn, self.help_btn, self.about_btn]:
++        self.sidebar_layout.addWidget(btn)
++
++    self.select_button(self.scan_btn)
++
++
++def create_nav_button(self, icon_path, tooltip="", button_id=""):
++    """Crée un bouton de navigation avec icône seulement"""
++    button = QPushButton()
++    button.setFixedHeight(45)
++    button.setFont(QFont("Segoe UI", 10))
++    button.setProperty("button_id", button_id)
++
++    icon_pixmap = QPixmap(icon_path).scaled(30, 30, Qt.AspectRatioMode.KeepAspectRatio,
++                                            Qt.TransformationMode.SmoothTransformation)
++    button.setIcon(QIcon(icon_pixmap))
++    button.setIconSize(QSize(30, 30))
++    button.clicked.connect(lambda checked, btn=button: self.on_nav_button_clicked(btn))
++    button.clicked.connect(self.toggle_sidebar)
++    return button
++
++
++def create_main_content(self):
++    """Crée la zone de contenu principale"""
++    self.main_content = QWidget()
++    self.apply_main_content_style()
++
++    main_layout = QVBoxLayout(self.main_content)
++    main_layout.setContentsMargins(0, 0, 0, 0)
++    main_layout.setSpacing(0)
++
++    header_widget = QWidget()
++    header_widget.setFixedHeight(60)
++    header_layout = QHBoxLayout(header_widget)
++    header_layout.setContentsMargins(20, 10, 20, 10)
++    header_layout.addStretch()
++
++    profile_menu = self.create_profile_menu()
++
++    # Mettre à jour le nom d'utilisateur dans le menu profil
++    if hasattr(self, 'username') and self.username:
++        self.set_username(self.username)
++
++    header_layout.addWidget(profile_menu)
++    main_layout.addWidget(header_widget)
++
++    # Contenu principal avec message de bienvenue personnalisé
++    content_widget = QWidget()
++    content_layout = QVBoxLayout(content_widget)
++    content_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
++    content_layout.setSpacing(40)
++    content_layout.setContentsMargins(40, 20, 40, 20)
++
++    icon_text_widget = QWidget()
++    icon_text_layout = QHBoxLayout(icon_text_widget)
++    icon_text_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
++    icon_text_layout.setSpacing(20)
++
++    icon_label = QLabel()
++    icon_pixmap = QPixmap("img/monitor.png")
++    if not icon_pixmap.isNull():
++        icon_pixmap = icon_pixmap.scaled(50, 50, Qt.AspectRatioMode.KeepAspectRatio,
++                                         Qt.TransformationMode.SmoothTransformation)
++        icon_label.setPixmap(icon_pixmap)
++    else:
++        icon_label.setText("🛡️")
++        icon_label.setStyleSheet("font-size: 32px;")
++
++    # Ajouter le texte
++    text_label = QLabel(
++        "Monitor file changes, detect unauthorized modifications, and secure your critical data in real-time.")
++    text_label.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
++    text_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
++    text_label.setWordWrap(True)
++    text_label.setStyleSheet("color: #2D3748;")
++    text_label.setMinimumWidth(600)
++
++    icon_text_layout.addWidget(icon_label)
++    icon_text_layout.addWidget(text_label)
++    content_layout.addWidget(icon_text_widget)
++
++    # Layout principal pour les sections
++    main_sections_widget = QWidget()
++    main_sections_layout = QHBoxLayout(main_sections_widget)
++    main_sections_layout.setContentsMargins(0, 0, 0, 0)
++    main_sections_layout.setSpacing(20)
++
++    # Colonne de gauche
++    left_column_widget = QWidget()
++    left_column_layout = QVBoxLayout(left_column_widget)
++    left_column_layout.setContentsMargins(0, 0, 0, 0)
++    left_column_layout.setSpacing(20)
++
++    # File/folder selection
++    file_frame = ShadowFrame()
++    file_frame.apply_shadow_style()
++    file_frame.setFixedSize(600, 120)
++
++    frame_layout = QHBoxLayout(file_frame)
++    frame_layout.setContentsMargins(30, 20, 30, 20)
++    frame_layout.setSpacing(20)
++
++    scan_icon_label = QLabel()
++    scan_icon_label.setStyleSheet("background-color: transparent; border: none;")
++    scan_icon_pixmap = QPixmap("img/quickScan.png")
++    if not scan_icon_pixmap.isNull():
++        scan_icon_pixmap = scan_icon_pixmap.scaled(30, 30, Qt.AspectRatioMode.KeepAspectRatio,
++                                                   Qt.TransformationMode.SmoothTransformation)
++        scan_icon_label.setPixmap(scan_icon_pixmap)
++    else:
++        scan_icon_label.setText("🔍")
++        scan_icon_label.setStyleSheet("font-size: 24px; color: white;border:none;background-color:transparent;")
++
++    title_widget = QWidget()
++    title_widget.setStyleSheet("background-color: transparent;")
++    title_layout = QVBoxLayout(title_widget)
++    title_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    title_layout.setSpacing(5)
++    title_layout.setContentsMargins(0, 0, 0, 0)
++
++    scan_title = QLabel("Quick Scan")
++    scan_title.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
++    scan_title.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    scan_title.setStyleSheet("color: black; background-color: transparent; padding: 0; margin: 0;border:none;")
++
++    lastScan = QLabel("Last Scan: Never")
++    lastScan.setObjectName("last_scan_label")
++    lastScan.setFont(QFont("Segoe UI", 10, QFont.Weight.Medium))
++    lastScan.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    lastScan.setStyleSheet(
++        "color: #525063; background-color: transparent; padding: 0; margin: 0;border:none;font-weight:bold;")
++
++    title_layout.addWidget(scan_title)
++    title_layout.addWidget(lastScan)
++
++    # Bouton Scan
++    scan_btn = QPushButton("Scan Now")
++    scan_btn.setFixedSize(120, 45)
++    scan_btn.setFont(QFont("Segoe UI", 12, QFont.Weight.Bold))
++    scan_btn.setStyleSheet("""
++           QPushButton {
++               background-color: #10B981;
++               color: white;
++               border: none;
++               border-radius: 10px;
++               font-weight: bold;
++           }
++           QPushButton:hover {
++               background-color: #059669;
++           }
++       """)
++    scan_btn.clicked.connect(self.show_scan_frame)
++
++    frame_layout.addWidget(scan_icon_label)
++    frame_layout.addWidget(title_widget)
++    frame_layout.addStretch()
++    frame_layout.addWidget(scan_btn)
++
++    # Auto scan frame
++
++    Autoscan_frame = ShadowFrame()
++    Autoscan_frame.apply_shadow_style()
++    Autoscan_frame.setFixedSize(600, 120)
++
++    Autoscan_layout = QHBoxLayout(Autoscan_frame)
++    Autoscan_layout.setContentsMargins(30, 20, 30, 20)
++    Autoscan_layout.setSpacing(20)
++
++    Autoscan_label = QLabel()
++    Autoscan_label.setStyleSheet("background-color: transparent; border: none;")
++    Autoscan_icon_pixmap = QPixmap("img/encrypted.png")
++    if not Autoscan_icon_pixmap.isNull():
++        Autoscan_icon_pixmap = Autoscan_icon_pixmap.scaled(30, 30, Qt.AspectRatioMode.KeepAspectRatio,
++                                                           Qt.TransformationMode.SmoothTransformation)
++        Autoscan_label.setPixmap(Autoscan_icon_pixmap)
++    else:
++        Autoscan_label.setText("🔍")
++        Autoscan_label.setStyleSheet("font-size: 24px; color: white;border:none;background-color:transparent;")
++
++    Autoscan_widget = QWidget()
++    Autoscan_widget.setStyleSheet("background-color: transparent;")
++    Autoscan_title_layout = QVBoxLayout(Autoscan_widget)
++    Autoscan_title_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    Autoscan_title_layout.setSpacing(5)
++    Autoscan_title_layout.setContentsMargins(0, 0, 0, 0)
++
++    Autoscan_title = QLabel("Auto scan")
++    Autoscan_title.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
++    Autoscan_title.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    Autoscan_title.setStyleSheet("color: black; background-color: transparent; padding: 0; margin: 0;border:none;")
++
++    Autoscan_lastScan = QLabel("Scan at Windows startup")
++    Autoscan_lastScan.setFont(QFont("Segoe UI", 10, QFont.Weight.Medium))
++    Autoscan_lastScan.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    Autoscan_lastScan.setStyleSheet(
++        "color: #525063; background-color: transparent; padding: 0; margin: 0;border:none;;font-weight:bold;")
++
++    Autoscan_title_layout.addWidget(Autoscan_title)
++    Autoscan_title_layout.addWidget(Autoscan_lastScan)
++
++    # Ajouter le toggle switch
++    self.auto_scan_switch = ModernSwitch()
++    self.auto_scan_switch.toggled.connect(self.on_auto_scan_toggled)
++
++    Autoscan_layout.addWidget(Autoscan_label)
++    Autoscan_layout.addWidget(Autoscan_widget)
++    Autoscan_layout.addStretch()
++    Autoscan_layout.addWidget(self.auto_scan_switch)
++
++    # Frame de l'historique des scans
++    history_frame = ShadowFrame()
++    history_frame.apply_shadow_style()
++    history_frame.setFixedSize(600, 300)
++
++    history_layout = QVBoxLayout(history_frame)
++    history_layout.setContentsMargins(30, 20, 30, 20)
++    history_layout.setSpacing(20)
++
++    # Widget pour contenir l'icône et le titre de l'historique
++    history_icon_title_widget = QWidget()
++    history_icon_title_widget.setStyleSheet("background-color: transparent;")
++    history_icon_title_layout = QHBoxLayout(history_icon_title_widget)
++    history_icon_title_layout.setContentsMargins(0, 0, 0, 0)
++    history_icon_title_layout.setSpacing(15)
++    history_icon_title_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
++
++    history_label = QLabel()
++    history_label.setStyleSheet("background-color: transparent; border: none;")
++    history_icon_pixmap = QPixmap("img/history.png")
++    if not history_icon_pixmap.isNull():
++        history_icon_pixmap = history_icon_pixmap.scaled(30, 30, Qt.AspectRatioMode.KeepAspectRatio,
++                                                         Qt.TransformationMode.SmoothTransformation)
++        history_label.setPixmap(history_icon_pixmap)
++    else:
++        history_label.setText("📋")
++        history_label.setStyleSheet("font-size: 24px; color: white;border:none;background-color:transparent;")
++
++    historyTitle = QLabel("Scan History")
++    historyTitle.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
++    historyTitle.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    historyTitle.setStyleSheet("color: black; background-color: transparent; padding: 0; margin: 0; border: none;")
++
++    history_icon_title_layout.addWidget(history_label)
++    history_icon_title_layout.addWidget(historyTitle)
++
++    # Zone de défilement pour l'historique
++    self.history_scroll_area = QScrollArea()
++    self.history_scroll_area.setStyleSheet("""
++           QScrollArea {
++               background-color: transparent;
++               border: none;
++           }
++           QScrollBar:vertical {
++               background-color: rgba(45, 55, 72, 0.8);
++               width: 10px;
++               border-radius: 5px;
++               margin: 0px;
++           }
++           QScrollBar::handle:vertical {
++               background-color: rgba(74, 85, 104, 0.8);
++               border-radius: 5px;
++               min-height: 20px;
++           }
++           QScrollBar::handle:vertical:hover {
++               background-color: rgba(113, 128, 150, 0.8);
++           }
++           QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
++               border: none;
++               background: none;
++           }
++       """)
++    self.history_scroll_area.setWidgetResizable(True)
++    self.history_scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
++    self.history_scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
++    self.history_scroll_area.setFrameShape(QFrame.Shape.NoFrame)
++
++    # Widget pour contenir les éléments d'historique
++    self.history_content = QWidget()
++    self.history_content.setStyleSheet("background-color: transparent;")
++    self.history_content_layout = QVBoxLayout(self.history_content)
++    self.history_content_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
++    self.history_content_layout.setSpacing(8)
++    self.history_content_layout.setContentsMargins(2, 2, 8, 2)
++
++    self.history_scroll_area.setWidget(self.history_content)
++
++    history_layout.addWidget(history_icon_title_widget)
++    history_layout.addWidget(self.history_scroll_area)
++
++    # Ajouter les frames à la colonne de gauche
++    left_column_layout.addWidget(file_frame)
++    left_column_layout.addWidget(Autoscan_frame)
++    left_column_layout.addWidget(history_frame)
++
++    # Colonne de droite - Stats
++    stats_frame = ShadowFrame()
++    stats_frame.apply_shadow_style()
++    stats_frame.setFixedSize(600, 500)
++
++    stats_layout = QVBoxLayout(stats_frame)
++    stats_layout.setContentsMargins(30, 20, 30, 20)
++    stats_layout.setSpacing(20)
++
++    # Widget pour contenir l'icône et le titre (sur la même ligne)
++    icon_title_widget = QWidget()
++    icon_title_widget.setStyleSheet("background-color: transparent;")
++    icon_title_layout = QHBoxLayout(icon_title_widget)
++    icon_title_layout.setContentsMargins(0, 0, 0, 0)
++    icon_title_layout.setSpacing(15)
++    icon_title_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
++
++    stats_label = QLabel()
++    stats_label.setStyleSheet("background-color: transparent; border: none;")
++    stats_icon_pixmap = QPixmap("img/evaluation.png")
++    if not stats_icon_pixmap.isNull():
++        stats_icon_pixmap = stats_icon_pixmap.scaled(30, 30, Qt.AspectRatioMode.KeepAspectRatio,
++                                                     Qt.TransformationMode.SmoothTransformation)
++        stats_label.setPixmap(stats_icon_pixmap)
++    else:
++        stats_label.setText("📊")
++        stats_label.setStyleSheet("font-size: 24px; color: white;border:none;background-color:transparent;")
++
++    statsTitle = QLabel("File status overview")
++    statsTitle.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
++    statsTitle.setAlignment(Qt.AlignmentFlag.AlignLeft)
++    statsTitle.setStyleSheet("color: black; background-color: transparent; padding: 0; margin: 0; border: none;")
++
++    icon_title_layout.addWidget(stats_label)
++    icon_title_layout.addWidget(statsTitle)
++
++    stats_layout.addWidget(icon_title_widget, alignment=Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignLeft)
++    stats_layout.addStretch()
++
++    # Ajouter les colonnes au layout principal
++    main_sections_layout.addWidget(left_column_widget)
++    main_sections_layout.addWidget(stats_frame, alignment=Qt.AlignmentFlag.AlignTop)
++
++    content_layout.addWidget(main_sections_widget)
++    main_layout.addWidget(content_widget, 1)
++
++
++""" 
++def mousePressEvent(self, event):
++    Ferme le menu profil si on clique en dehors
++    if (self.profile_dropdown.isVisible() and
++            not self.profile_dropdown.geometry().contains(event.globalPos()) and
++            not self.profile_btn.geometry().contains(event.globalPos())):
++        self.profile_dropdown.setVisible(False)
++        arrow_pixmap = QPixmap("img/arrow_down.png").scaled(12, 12, Qt.AspectRatioMode.KeepAspectRatio,
++                                                               Qt.TransformationMode.SmoothTransformation)
++        self.arrow_icon.setPixmap(arrow_pixmap)
++
++    super().mousePressEvent(event)"""
++
++
++def toggle_sidebar(self):
++    self.sidebar_expanded = not self.sidebar_expanded
++
++    self.animation_min = QPropertyAnimation(self.sidebar, b"minimumWidth")
++    self.animation_max = QPropertyAnimation(self.sidebar, b"maximumWidth")
++
++    for anim in (self.animation_min, self.animation_max):
++        anim.setDuration(300)
++        anim.setEasingCurve(QEasingCurve.Type.InOutQuart)
++
++    if self.sidebar_expanded:
++        self.animation_min.setStartValue(100)
++        self.animation_min.setEndValue(200)
++        self.animation_max.setStartValue(100)
++        self.animation_max.setEndValue(200)
++        self.animation_max.finished.connect(lambda: self.show_sidebar_text(True))
++    else:
++        self.show_sidebar_text(False)
++        self.animation_min.setStartValue(200)
++        self.animation_min.setEndValue(100)
++        self.animation_max.setStartValue(200)
++        self.animation_max.setEndValue(100)
++
++    self.animation_min.start()
++    self.animation_max.start()
++
++
++def on_auto_scan_toggled(self, checked):
++    """Gère le changement d'état du switch Auto Scan"""
++    if checked:
++        print("Auto scan activé - Analyse au démarrage de Windows activée")
++        # Ici vous pouvez ajouter la logique pour activer l'analyse au démarrage
++    else:
++        print("Auto scan désactivé - Analyse au démarrage de Windows désactivée")
++        # Ici vous pouvez ajouter la logique pour désactiver l'analyse au démarrage
++
++
++def create_sidebar_logo(self):
++    logo_container = QWidget()
++    logo_container.setFixedHeight(50)
++    logo_layout = QHBoxLayout(logo_container)
++    logo_layout.setContentsMargins(0, 0, 0, 0)
++
++    logo_label = QLabel()
++    logo_label.setFixedSize(40, 40)
++    logo_pixmap = QPixmap("img/sign.png").scaled(40, 40, Qt.AspectRatioMode.KeepAspectRatio,
++                                                 Qt.TransformationMode.SmoothTransformation)
++    logo_label.setPixmap(logo_pixmap)
++    logo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
++
++    self.logo_text = QLabel("FortiFile")
++    self.logo_text.setFont(QFont("Segoe UI", 18, QFont.Weight.Bold))
++    self.logo_text.setStyleSheet("color: white;border:none;")
++    self.logo_text.setVisible(False)
++
++    logo_layout.addWidget(logo_label)
++    logo_layout.addWidget(self.logo_text)
++    self.sidebar_layout.addWidget(logo_container)
++
++
++def select_button(self, button):
++    """Sélectionne un bouton et désélectionne les autres"""
++    all_buttons = [self.scan_btn, self.dashboard_btn, self.identity_btn,
++                   self.settings_btn, self.help_btn, self.about_btn]
++
++    for btn in all_buttons:
++        self.deselect_button(btn)
++
++    if self.is_dark_theme:
++        button.setStyleSheet("""
++               QPushButton {
++                   background-color:#525063;
++                   color: #0D0422;
++                   border: none;
++                   border-radius: 5px;
++                   font-weight: bold;
++                   text-align: left;
++                   padding: 10px 5px;
++                   font-size: 16px;
++                   width: 200px;
++                   border-left: 4px solid #FFFFFF;
++                   border-top-left-radius: 20px;
++                   border-bottom-left-radius: 20px;
++                   border-top-right-radius: 0px;
++                   border-bottom-right-radius: 0px;
++                   max-width: 220px;
++               }
++           """)
++    else:
++        button.setStyleSheet("""
++               QPushButton {
++                   background-color:#DFDFED;
++                   color: #151B54;
++                   border: none;
++                   border-radius: 5px;
++                   font-weight: bold;
++                   text-align: left;
++                   padding: 10px 5px;
++                   font-size: 16px;
++                   width: 200px;
++                   border-left: 4px solid #FFFFFF;
++                   border-top-left-radius: 20px;
++                   border-bottom-left-radius: 20px;
++                   border-top-right-radius: 0px;
++                   border-bottom-right-radius: 0px;
++                   max-width: 220px;
++               }
++           """)
++
++    button_id = button.property("button_id")
++    colored_icon_path = f"img/{button_id}_selec.png"
++
++    colored_pixmap = QPixmap(colored_icon_path)
++    if not colored_pixmap.isNull():
++        colored_pixmap = colored_pixmap.scaled(24, 24, Qt.AspectRatioMode.KeepAspectRatio,
++                                               Qt.TransformationMode.SmoothTransformation)
++        button.setIcon(QIcon(colored_pixmap))
++    else:
++        normal_icon_path = f"img/{button_id}.png"
++        normal_pixmap = QPixmap(normal_icon_path).scaled(24, 24, Qt.AspectRatioMode.KeepAspectRatio,
++                                                         Qt.TransformationMode.SmoothTransformation)
++        button.setIcon(QIcon(normal_pixmap))
++
++    self.current_selected_button = button
++
++
++def deselect_button(self, button):
++    button.setStyleSheet("""
++           QPushButton {
++               background-color: transparent;
++               color: #FFFFFF;
++               border: none;
++               border-radius: 5px;
++               font-weight: bold;
++               text-align: left;
++               padding: 10px 5px;
++               min-width: 100px;
++               width: 200px;
++               max-width: 200px;
++               font-size: 14px;
++           }
++           QPushButton:hover {
++               background-color: rgba(255, 255, 255, 0.1);
++               font-size: 14px;
++           }
++       """)
++
++    button_id = button.property("button_id")
++    normal_icon_path = f"img/{button_id}.png"
++
++    normal_pixmap = QPixmap(normal_icon_path)
++    if not normal_pixmap.isNull():
++        normal_pixmap = normal_pixmap.scaled(24, 24, Qt.AspectRatioMode.KeepAspectRatio,
++                                             Qt.TransformationMode.SmoothTransformation)
++        button.setIcon(QIcon(normal_pixmap))
++
++
++def on_nav_button_clicked(self, clicked_button):
++    """Gère le clic sur un bouton de navigation"""
++    self.select_button(clicked_button)
++    button_id = clicked_button.property("button_id")
++    print(f"Bouton cliqué: {button_id}")
++
++
++def show_sidebar_text(self, show):
++    try:
++        buttons = [self.scan_btn, self.dashboard_btn, self.identity_btn,
++                   self.settings_btn, self.help_btn, self.about_btn]
++        icons = ["img/scanner.png", "img/dashboard.png", "img/identity.png",
++                 "img/setting.png", "img/question.png", "img/about.png"]
++        active_icons = ["img/scanner_selec.png", "img/dashboard_selec.png", "img/identity_selec.png",
++                        "img/setting_selec.png", "img/question_selec.png", "img/about_selec.png"]
++        texts = [" Home", " Dashboard", " Identity", " Settings", " Help", " About"]
++
++        self.logo_text.setVisible(show)
++
++        for i, btn in enumerate(buttons):
++            if show:
++                if hasattr(self, 'current_selected_button') and btn == self.current_selected_button:
++                    icon_path = active_icons[i]
++                else:
++                    icon_path = icons[i]
++
++                icon_pixmap = QPixmap(icon_path).scaled(20, 20, Qt.AspectRatioMode.KeepAspectRatio,
++                                                        Qt.TransformationMode.SmoothTransformation)
++                btn.setIcon(QIcon(icon_pixmap))
++                btn.setText(texts[i])
++                btn.setToolTip("")
++
++                if hasattr(self, 'current_selected_button') and btn == self.current_selected_button:
++                    self.select_button(btn)
++            else:
++                if hasattr(self, 'current_selected_button') and btn == self.current_selected_button:
++                    icon_path = active_icons[i]
++                else:
++                    icon_path = icons[i]
++
++                icon_pixmap = QPixmap(icon_path).scaled(24, 24, Qt.AspectRatioMode.KeepAspectRatio,
++                                                        Qt.TransformationMode.SmoothTransformation)
++                btn.setIcon(QIcon(icon_pixmap))
++                btn.setText("")
++                btn.setToolTip(texts[i].strip())
++
++                if hasattr(self, 'current_selected_button') and btn == self.current_selected_button:
++                    self.select_button(btn)
++
++    except Exception as e:
++        print(f"Error in show_sidebar_text: {e}")
++
++
++def apply_sidebar_style(self):
++    if self.is_dark_theme:
++        self.sidebar.setStyleSheet("""
++               QWidget {
++                   background-color: rgba(37, 37, 55, 0.7);
++                   border-right: 1px solid #4A5568;
++                   border-radius: 25px;
++               }
++               QPushButton {
++                   background-color: transparent;
++                   color: #FFFFFF;
++                   border: none;
++                   border-radius: 5px;
++                   text-align: left;
++                   padding: 10px;
++                   padding: 10px 5px;
++                   min-width: 40px;
++               }
++               QPushButton:hover {
++                   background-color: #2D3748;
++               }
++               QPushButton:pressed {
++                   background-color: #9F7AEA;
++                   color: #1A202C;
++               }
++           """)
++    else:
++        self.sidebar.setStyleSheet("""
++               QWidget {
++                   background-color: #151B54;
++                   border-right: 1px solid #5A4FDF;
++                   border-radius: 25px;
++               }
++               QLabel {
++                   color: #FFFFFF;
++                   background-color: transparent;
++                   font-weight: bold;
++               }
++               QPushButton {
++                   background-color: transparent;
++                   color: #FFFFFF;
++                   border: none;
++                   border-radius: 5px;
++                   text-align: left;
++                   padding: 10px;
++                   padding: 10px 5px;
++                   min-width: 50px;
++               }
++               QPushButton:hover {
++                   background-color: #5A4FDF;
++               }
++               QPushButton:pressed {
++                   background-color: #FFFFFF;
++                   color: #6A5FF5;
++               }
++           """)

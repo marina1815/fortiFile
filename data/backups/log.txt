@@ -1,0 +1,262 @@
+[2025-11-10 14:09:12] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'user' with 4 files
+[2025-11-10 14:09:52] [ACCES REFUSÉ] 'user' ne peut pas modifier C:\Users\DELL\Desktop\test-scan\cefdxvf.txt
+[2025-11-10 14:10:51] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'user' with 4 files
+[2025-11-10 16:01:34] [ACCES REFUSÉ] 'user' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\rkljmn.txt
+[2025-11-10 16:10:59] [SUCCESS] Folder 'C:/Users/DELL/Desktop/test-scan' added by user 'marina' with 4 files
+[2025-11-10 16:19:16] [ACCES REFUSÉ] '' ne peut pas modifier C:\Users\DELL\Desktop\test-scan\nkdl,mnxsklbjkcd.txt
+[2025-11-10 16:21:02] [SUCCESS] Folder 'C:/Users/DELL/Desktop/test-scan' added by user 'marina' with 4 files
+[2025-11-10 16:21:25] [ACCES REFUSÉ] '' ne peut pas modifier C:/Users/DELL/Desktop/test-scan\rkljmn.txt
+[2025-11-10 16:24:44] [ACCES REFUSÉ] '' ne peut pas modifier C:/Users/DELL/Desktop/test-scan\rkljmn.txt
+[2025-11-10 16:26:10] [ACCES REFUSÉ] '' ne peut pas modifier C:/Users/DELL/Desktop/test-scan\rkljmn.txt
+[2025-11-10 16:29:19] Le fichier C:/Users/DELL/Desktop/test-scan\rkljmn.txt a été modifié (autorisé).
+[2025-11-10 16:29:34] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:29:39] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:29:39] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:29:44] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:29:44] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:29:49] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:29:49] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:29:54] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:29:54] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:29:59] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:29:59] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:30:04] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:30:04] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:05] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:05] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:10] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:10] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:15] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:15] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:20] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:20] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:20] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:21] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:26] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:26] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:31] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:31] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:36] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:36] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:31:41] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:31:41] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:33:51] Le fichier C:/Users/DELL/Desktop/test-scan\rkljmn.txt a été modifié (autorisé).
+[2025-11-10 16:33:51] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:33:56] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:33:56] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:34:01] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:34:01] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:34:06] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:34:06] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:36:11] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:36:11] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:36:16] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:36:16] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:36:21] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:36:21] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:36:26] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:36:26] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:36:35] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:36:35] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:11] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:11] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:16] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:16] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:21] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:21] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:26] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:27] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:32] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:32] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:37] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:37] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:42] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:42] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:47] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:47] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:52] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:52] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:58:57] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:58:57] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:59:31] Le fichier C:/Users/DELL/Desktop/test-scan\rkljmn.txt a été modifié (autorisé).
+[2025-11-10 16:59:31] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:59:36] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:59:36] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:59:41] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:59:41] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:59:46] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:59:47] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:59:52] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:59:52] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 16:59:57] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 16:59:57] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:02] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:02] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:07] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:07] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:12] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:12] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:17] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:17] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:22] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:22] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:27] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:27] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:32] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:32] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:37] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:37] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:42] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:42] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:47] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:47] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:52] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:52] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:00:57] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:00:57] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:02] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:02] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:07] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:07] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:12] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:12] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:17] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:17] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:22] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:22] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:27] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:27] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:32] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:32] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:37] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:37] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:42] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:42] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:47] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:47] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:52] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:52] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 17:01:57] Le fichier C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt a été supprimé (autorisé).
+[2025-11-10 17:01:57] [ALERTE] Nouveaux fichiers suspects: 0 modifiés, 1 supprimés.
+[2025-11-10 18:41:05] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 6 files
+[2025-11-10 18:42:37] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 6 files
+[2025-11-10 18:44:03] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 6 files
+[2025-11-10 18:45:12] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 6 files
+[2025-11-10 18:45:37] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'user' with 6 files
+[2025-11-10 18:46:38] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 6 files
+[2025-11-10 18:51:05] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'user' with 5 files
+[2025-11-10 18:56:04] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 1 files
+[2025-11-10 18:57:58] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 1 files
+[2025-11-10 19:48:40] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 5 files
+[2025-11-10 20:02:14] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 4 files
+[2025-11-10 20:20:46] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 5 files
+[2025-11-10 20:23:09] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 5 files
+[2025-11-10 20:52:29] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:/Users/DELL/Desktop/test-scan\rkljmn.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:/Users/DELL/Desktop/test-scan\rkljmn.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\hana.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer c:\users\dell\desktop\test-scan\nkdl,mnxsklbjkcd.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\hibba.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas modifier c:\users\dell\desktop\test-scan\hibba.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\feriel.txt
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas modifier c:\users\dell\desktop\test-scan\feriel.txt
+[2025-11-10 20:52:56] Le fichier C:\Users\DELL\Desktop\test-scan\marina.txt a été modifié (autorisé).
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:/Users/DELL/Desktop/test-scan\rkljmn.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:/Users/DELL/Desktop/test-scan\tedrfgyh.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\hana.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer c:\users\dell\desktop\test-scan\nkdl,mnxsklbjkcd.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\hibba.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer c:\users\dell\desktop\test-scan\hibba.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer C:\Users\DELL\Desktop\test-scan\feriel.txt (hors baseline)
+[2025-11-10 20:52:56] [ACCES REFUSÉ] 'admin' ne peut pas supprimer c:\users\dell\desktop\test-scan\feriel.txt (hors baseline)
+[2025-11-10 21:49:53] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'admin' with 1 files
+[2025-11-10 21:52:40] [SUCCESS] Folder 'C:/Users/DELL/PycharmProjects/FMI/ui/data' added by user 'marina' with 4 files
+[2025-11-10 22:07:16] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 1 files
+[2025-11-10 22:09:39] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 2 files
+[2025-11-10 22:12:37] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 2 files
+[2025-11-10 22:14:22] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'admin' with 2 files
+[2025-11-10 22:17:46] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'admin' with 2 files
+[2025-11-10 22:19:12] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 2 files
+[2025-11-10 22:20:18] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'user' with 2 files
+[2025-11-10 22:40:25] [SUCCESS] Folder 'C:/Users/DELL/Desktop/test' added by user 'admin' with 2 files
+[2025-11-10 22:40:25] [SUCCESS] Folder 'C:/Users/DELL/Desktop/test-scan' added by user 'admin' with 11 files
+[2025-11-10 22:40:25] [SUCCESS] Folder 'C:/Users/DELL/PycharmProjects/FMI/ui/data' added by user 'admin' with 4 files
+[2025-11-10 22:40:25] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'admin' with 1 files
+[2025-11-10 22:40:25] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 11 files
+[2025-11-10 22:40:25] [SUCCESS] Folder 'DELETE FROM nom_table;' added by user 'admin' with 0 files
+[2025-11-10 22:43:43] [SUCCESS] Folder 'C:\Users\DELL\Desktop\New folder' added by user 'admin' with 1 files
+[2025-11-10 22:43:43] Observer started for C:\Users\DELL\Desktop\New folder
+[2025-11-10 22:43:43] [SUCCESS] Folder 'C:\Users\DELL\Desktop\test-scan' added by user 'admin' with 3 files
+[2025-11-10 22:43:43] Observer started for C:\Users\DELL\Desktop\test-scan
+[2025-11-10 22:44:25] Observer stopped for c:\users\dell\desktop\new folder
+[2025-11-10 22:44:25] Observer stopped for c:\users\dell\desktop\test-scan
+[2025-11-10 23:10:35] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:11:13] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:11:46] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:14:16] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:14:19] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:15:43] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:15:47] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:16:55] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:27:03] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:29:01] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:29:03] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:29:22] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:33:33] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:33:47] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:34:37] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:34:57] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:35:28] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:35:45] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:36:04] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:36:17] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:41:54] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:42:16] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:42:17] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:42:34] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:43:37] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:44:41] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:45:11] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:45:47] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:50:21] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:50:26] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:50:36] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:50:41] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:50:49] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:50:57] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:51:21] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:51:21] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:53:10] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:53:17] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:53:24] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:53:29] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:57:44] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-10 23:58:16] Observer stopped for c:\users\dell\desktop
+[2025-11-10 23:58:55] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:07:52] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:08:37] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:17:49] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:17:50] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:18:37] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:18:38] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:22:23] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:22:30] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:23:08] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:23:16] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:23:56] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:28:27] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:28:29] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:29:34] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:29:41] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:30:41] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:30:53] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:34:10] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:34:18] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:37:00] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:37:02] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:38:09] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:38:22] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:38:58] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:39:15] Observer stopped for c:\users\dell\desktop
+[2025-11-11 00:41:53] Observer started for files in C:\Users\DELL\Desktop
+[2025-11-11 00:41:54] Observer stopped for c:\users\dell\desktop

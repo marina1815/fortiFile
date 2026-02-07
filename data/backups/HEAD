@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 1771cef57be6ec80cb66dfe62ba10bb6ca3ce6fc marina <innavin1815@gmail.com> 1762097832 +0100	commit (initial): cree le main et la base de donnees sqlite
+1771cef57be6ec80cb66dfe62ba10bb6ca3ce6fc 1cf1aed65b1c16ffbc2779bec965ec9febc07f04 marina <innavin1815@gmail.com> 1762103284 +0100	commit: modification la base de donnees et ajout des fonctionnalites de monitoring
+1cf1aed65b1c16ffbc2779bec965ec9febc07f04 837b71bdcfae0d9102d8d89fe778b8d028df0066 marina <innavin1815@gmail.com> 1762106048 +0100	commit: changement de la structure du projet
+837b71bdcfae0d9102d8d89fe778b8d028df0066 687ec5a6175a74feb48cc9022d697f02d6d5daff marina <innavin1815@gmail.com> 1762106921 +0100	commit: fixing mistakes
+687ec5a6175a74feb48cc9022d697f02d6d5daff f4ab072bff6fef964667885fcde31881b0437b9e marina <innavin1815@gmail.com> 1762191807 +0100	commit: hello hanouaaa
+f4ab072bff6fef964667885fcde31881b0437b9e 007e3462127a11f28b27a74bcf8a3af2ea47a493 marina <innavin1815@gmail.com> 1762203369 +0100	commit: added home screen
+007e3462127a11f28b27a74bcf8a3af2ea47a493 e5e3cc9136989b558bd5b5ef1ce85358d992127a marina <innavin1815@gmail.com> 1762528106 +0100	commit: modified dash
+e5e3cc9136989b558bd5b5ef1ce85358d992127a 3bb0dd051601e8d487632cdcc91e9e75d885d687 marina <innavin1815@gmail.com> 1762529613 +0100	merge origin/main: Fast-forward
+3bb0dd051601e8d487632cdcc91e9e75d885d687 3861192c5a2738bcdd1e96d8dd6375f394c146e3 marina <innavin1815@gmail.com> 1762544294 +0100	merge origin/main: Fast-forward
+3861192c5a2738bcdd1e96d8dd6375f394c146e3 fb80f601b7393723bdc06f246e41ba5e8454fdbc marina <innavin1815@gmail.com> 1762807619 +0100	commit: modified dash
